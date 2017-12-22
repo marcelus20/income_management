@@ -111,7 +111,7 @@ class System:
 
     def see_menu(self, id):
 
-        options = ["See All Data", "See Dat Between 2 Dates",
+        options = ["See All Data", "See Data Between 2 ids",
                    "See Balance", "See by description","Back to Menu"]
         print(25 * "=")
         for i in range(len(options)):
@@ -143,10 +143,10 @@ class System:
         print(25 * "=")
         result = self.text_capture("", False)
         if result == "1":
-            Income_controller.Income_repository().see_trans_b_dates()
+            Income_controller.Income_repository().see_trans_b_ids(id)
             self.home(id)
         elif result == "2":
-            Income_controller.Income_repository().see_trans_b_dates_user(id)
+            Income_controller.Income_repository().see_trans_b_id_user(id)
             self.home(id)
         elif result == "3":
             self.home(id)
@@ -224,8 +224,8 @@ class System:
             total_expense += table[i][3]
             total_income +=table[i][2]
 
-        print(42 * " " + "Total Income: ", total_income)
-        print(42 * " " + "Total Expense: ", total_expense)
-        print(42 * " " + "Balance: ", balance)
+        print(42 * " " + "Total Income: ", "{:.2f}".format(total_income))
+        print(42 * " " + "Total Expense: ", "{:.2f}".format(total_expense))
+        print(42 * " " + "Balance: ", "{:.2f}".format(balance))
 
 

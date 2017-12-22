@@ -159,12 +159,12 @@ class DB_dealing:
         c = self.conn.cursor()
         if user == "":
 
-            table = c.execute("SELECT * FROM income WHERE date BETWEEN '{}' AND '{}'".format(
+            table = c.execute("SELECT * FROM income WHERE id BETWEEN '{}' AND '{}'".format(
                 date_a, date_b)).fetchall()
 
 
         else:
-            table =  c.execute("SELECT * FROM income WHERE date BETWEEN '{}' AND '{}' AND user_id = {}".format(
+            table =  c.execute("SELECT * FROM income WHERE id BETWEEN '{}' AND '{}' AND user_id = {}".format(
                 date_a, date_b, user)).fetchall()
 
         c.close()

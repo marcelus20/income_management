@@ -50,9 +50,10 @@ class Income_repository:
         System.System().print_tables_nicely(table)
         System.System().balance_sum(table)
 
-    def see_trans_b_dates(self):
-        date_1 = System.System().text_capture("Insert date 1: ", False)
-        date_2 = System.System().text_capture("Insert date 2: ", False)
+    def see_trans_b_ids(self, id):
+        self.see_trans("")
+        date_1 = System.System().text_capture("Insert id 1: ", False)
+        date_2 = System.System().text_capture("Insert id 2: ", False)
         data = User_Income_repository.DB_dealing().tables_selector_by_date(date_1, date_2, "")
         System.System().print_tables_nicely(data)
         System.System().balance_sum(data)
@@ -60,16 +61,17 @@ class Income_repository:
     def see_balance(self):
 
         print("The current all user balance is : ")
-        print(User_Income_repository.DB_dealing().last_balance_retriever(
+        print("{:.2f}".format(User_Income_repository.DB_dealing().last_balance_retriever(
             User_Income_repository.DB_dealing().last_id_retriever("income")
-        ))
+        )))
         print("to check only your balance, select 'just yours' in the see_menu")
 
         #print(Data_base_tables.DB_dealing().last_id_retriever("income"))
 
-    def see_trans_b_dates_user(self, id):
-        date_1 = System.System().text_capture("Insert date 1: ", False)
-        date_2 = System.System().text_capture("Insert date 2: ", False)
+    def see_trans_b_id_user(self, id):
+        self.see_trans(id)
+        date_1 = System.System().text_capture("Insert id 1: ", False)
+        date_2 = System.System().text_capture("Insert id 2: ", False)
         data = User_Income_repository.DB_dealing().tables_selector_by_date(date_1, date_2, id)
 
         print("|{:^10}||{:^20}||{:^10}||{:^10}||{:^10}||{:^10}||{:^10}||{:^10}|".format("id", "Date",
