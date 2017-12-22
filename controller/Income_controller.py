@@ -42,7 +42,8 @@ class Income_repository:
     def see_trans(self, id):
         print("|{:^10}||{:^10}||{:^10}||{:^10}||{:^10}||{:^10}||{:^10}||{:^10}|".format("id", "Date",
                                                                                             "Income", "Expense",
-                                                                                            "t_balance", "balance",
+                                                                                            "t_balance",
+                                                                                            "balance",
                                                                                             "description", "user_name"))
         table = User_Income_repository.DB_dealing().tables_selection("income", id)
 

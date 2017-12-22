@@ -43,7 +43,15 @@ class System:
         for i in range(len(table)):  # Lines of the Table
             for j in range(len(table[i])):  # columns of the table
                 if j < len(table[i]):
-                    text += "|{:^10}|".format(str(table[i][j]))
+
+                    if j == 6:
+                        text += "|{:^40}|".format(table[i][j])
+
+                    else:
+                        if j == 4 or j == 5:
+                            text += "|{:^10.2f}|".format(table[i][j])
+                        else:
+                            text += "|{:^10}|".format(table[i][j])
                     if j == len(table[i]) - 1:  # If column is the last column, break one line!
                         text += "\n"
 
