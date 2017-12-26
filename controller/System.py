@@ -28,6 +28,12 @@ class System:
         else:
             value = input(msg)
             value = value.replace(",", ".")
+            if "+" in value:
+
+                value_list = value.split("+")
+                value = 0
+                for values in value_list:
+                    value += float(values)
             if value == "":
                 value = 0
 

@@ -32,3 +32,5 @@ class App():
 
 app = App()
 #a = Income_controller.Income_repository().see_trans(2)
+#sys = System.System()
+#sys.text_capture("type a number", True)
