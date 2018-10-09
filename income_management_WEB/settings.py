@@ -1,3 +1,4 @@
+
 """
 Django settings for income_management_WEB project.
 
@@ -31,6 +32,8 @@ ALLOWED_HOSTS = ['34.244.122.96', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'income_management',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'income_management_WEB.urls'
 
@@ -75,8 +79,12 @@ WSGI_APPLICATION = 'income_management_WEB.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'income_management',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -99,6 +107,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+REST_FRAMEWORK = {
+
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    )
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
